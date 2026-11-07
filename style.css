@@ -1,0 +1,275 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #000000;
+  --color-text: #ffffff;
+  --color-section-1: #8e9487;
+  --color-section-2: #1e1e1c;
+  --color-section-3: #9381ff;
+  --color-section-4: #f0c808;
+  --color-section-5: #bc4749;
+  --color-section-6: #c2c1c2;
+
+  --font-base:
+    "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --space-2: 1rem;
+  --space-3: 2rem;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: var(--font-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  line-height: 1.2;
+}
+
+p {
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::after,
+  *::before {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+h1,
+h2 {
+  font-size: clamp(3rem, 10vw, 15rem);
+  font-weight: 500;
+  letter-spacing: -0.025rem;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 1.25rem;
+  letter-spacing: -0.025rem;
+  line-height: 1.25;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 1.75rem;
+  }
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  --section-height: 100svh;
+
+  position: relative;
+  width: 100%;
+  min-height: var(--section-height);
+  overflow: hidden;
+}
+
+.four {
+  --section-height: 125svh;
+
+  @media screen and (min-width: 1024px) {
+    --section-height: 200svh;
+  }
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: var(--section-height);
+  padding: var(--space-3);
+  transform-origin: bottom left;
+
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+    gap: 0;
+  }
+}
+
+.one .container {
+  color: var(--color-bg);
+  background-color: var(--color-section-1);
+}
+
+.two .container {
+  color: var(--color-text);
+  background-color: var(--color-section-2);
+}
+
+.three .container {
+  color: var(--color-bg);
+  background-color: var(--color-section-3);
+}
+
+.five .container {
+  color: var(--color-text);
+  background-color: var(--color-section-5);
+}
+
+.six .container {
+  color: var(--color-bg);
+  background-color: var(--color-section-6);
+}
+
+.col {
+  flex: 1;
+  display: flex;
+}
+
+.img {
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.col .img {
+  width: 90%;
+
+  @media screen and (min-width: 1024px) {
+    width: 45%;
+  }
+}
+
+.one .col:nth-child(2),
+.five .col:nth-child(2),
+.six .col:nth-child(2) {
+  align-items: flex-end;
+}
+
+.two .col:nth-child(1),
+.three .col:nth-child(2) {
+  justify-content: center;
+  align-items: center;
+}
+
+.two .col:nth-child(2),
+.three .col:nth-child(1) {
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-2);
+
+  @media screen and (min-width: 1024px) {
+    justify-content: space-between;
+    gap: 0;
+  }
+}
+
+.four .container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2);
+  text-align: center;
+  color: var(--color-bg);
+  background-color: var(--color-section-4);
+}
+
+.four .img {
+  margin-bottom: 4rem;
+  width: 90%;
+
+  @media screen and (min-width: 1024px) {
+    width: 30%;
+  }
+}
+
+.four p {
+  width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    width: 50%;
+  }
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 70svh;
+  padding: var(--space-3);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
